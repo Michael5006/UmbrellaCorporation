@@ -1,6 +1,4 @@
-// ================================
-// MENÚ INTERACTIVO
-// ================================
+// Menú Interactivo
 
 const botonMenu = document.getElementById("botonMenu");
 const menu = document.getElementById("menu");
@@ -9,9 +7,7 @@ botonMenu.addEventListener("click", function () {
   menu.classList.toggle("activo");
 });
 
-// ================================
-// MODO OSCURO
-// ================================
+// Modo Oscuro
 
 const botonTema = document.getElementById("botonTema");
 
@@ -25,31 +21,71 @@ botonTema.addEventListener("click", function () {
   }
 });
 
-// ================================
-// CONTADOR DE LA MOCHILA
-// ================================
+// Mochila
 
 const botonesAgregar = document.querySelectorAll(".boton-agregar");
 const contador = document.getElementById("contadorMochila");
+const listaMochila = document.getElementById("listaMochila");
 const botonVaciar = document.getElementById("botonVaciar");
 
-let elementos = 0;
+// Aquí se guardan los nombres de los recursos que llevamos.
+let mochila = [];
+
+// Dibuja la lista y actualiza el número de elementos.
+function mostrarMochila() {
+  listaMochila.innerHTML = "";
+
+  if (mochila.length === 0) {
+    const vacia = document.createElement("li");
+    vacia.className = "vacia";
+    vacia.textContent = "La mochila está vacía.";
+    listaMochila.appendChild(vacia);
+  } else {
+    mochila.forEach(function (recurso) {
+      const item = document.createElement("li");
+      item.textContent = recurso;
+      listaMochila.appendChild(item);
+    });
+  }
+
+  contador.textContent = mochila.length;
+}
 
 botonesAgregar.forEach(function (boton) {
   boton.addEventListener("click", function () {
-    elementos = elementos + 1;
-    contador.textContent = elementos;
+    // El nombre del recurso es el título de su propia tarjeta.
+    const recurso = boton.closest(".tarjeta-cuerpo").querySelector("h3").textContent;
+    const posicion = mochila.indexOf(recurso);
+
+    // Si todavía no está lo agrega, y si ya está lo quita.
+    if (posicion === -1) {
+      mochila.push(recurso);
+      boton.textContent = "Quitar";
+      boton.classList.add("activo");
+    } else {
+      mochila.splice(posicion, 1);
+      boton.textContent = "Agregar";
+      boton.classList.remove("activo");
+    }
+
+    mostrarMochila();
   });
 });
 
 botonVaciar.addEventListener("click", function () {
-  elementos = 0;
-  contador.textContent = elementos;
+  mochila = [];
+
+  botonesAgregar.forEach(function (boton) {
+    boton.textContent = "Agregar";
+    boton.classList.remove("activo");
+  });
+
+  mostrarMochila();
 });
 
-// ================================
-// NIVELES DE PELIGRO
-// ================================
+mostrarMochila();
+
+// Niveles de peligro
 
 const botonesNivel = document.querySelectorAll(".boton-nivel");
 const detalle = document.getElementById("detalleNivel");
@@ -77,9 +113,7 @@ botonesNivel.forEach(function (boton) {
   });
 });
 
-// ================================
-// REPORTES DE NUEVAS ZONAS
-// ================================
+// Zonas Nuevas (Formulario)
 
 const formulario = document.getElementById("formularioReporte");
 const mensaje = document.getElementById("mensajeFormulario");
@@ -330,3 +364,15 @@ formulario.addEventListener("submit", async function (evento) {
 
 // Cargar las zonas nuevas cuando se abre o recarga la página.
 mostrarZonas();
+
+// Días transcurridos desde el brote
+
+const diasBrote = document.getElementById("diasBrote");
+
+// Fecha en que comenzó el brote (el mes se cuenta desde 0, así que 6 = julio).
+const FECHA_BROTE = new Date(2026, 6, 24);
+
+const MILISEGUNDOS_POR_DIA = 1000 * 60 * 60 * 24;
+const diferencia = new Date() - FECHA_BROTE;
+
+diasBrote.textContent = Math.floor(diferencia / MILISEGUNDOS_POR_DIA);

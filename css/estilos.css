@@ -496,8 +496,6 @@ img {
   font-size: 13px;
   color: #777777;
 }
-<<<<<<< HEAD
-=======
 
 /* ================================
    ACORDEÓN DE PROTOCOLOS
@@ -590,7 +588,6 @@ img {
     flex-wrap: wrap;
   }
 
->>>>>>> 9d4395f (Funcionalidades: Se agregó funcionalidades en la mochila para que no se pudiese agregar infinitamente, se corrigió el responsive y se agregaron imagenes en la mochila)
   .boton-menu {
     display: block;
     background-color: transparent;
@@ -637,19 +634,4 @@ img {
   .inicio h2 {
     font-size: 28px;
   }
-<<<<<<< HEAD
-
-@media (max-width: 900px) {
-  .tarjetas {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
-
-@media (max-width: 700px) {
-  .barra {
-    flex-wrap: wrap;
-  } 
-    } 
-=======
-}
->>>>>>> 9d4395f (Funcionalidades: Se agregó funcionalidades en la mochila para que no se pudiese agregar infinitamente, se corrigió el responsive y se agregaron imagenes en la mochila)

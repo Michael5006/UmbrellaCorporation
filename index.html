@@ -36,7 +36,7 @@
             <div class="contenedor inicio-texto">
                 <h2>Guía Oficial De Supervivencia</h2>
                 <p>
-                    El brote comenzó hace 47 días. Esta guía reúne la información
+                    El brote comenzó hace <span class="dias-brote" id="diasBrote">47</span> días. Esta guía reúne la información
                     verificada por los últimos puestos de control activos: dónde
                     refugiarse, cómo medir el riesgo de cada zona y qué llevar
                     en la mochila antes de salir.
@@ -55,8 +55,6 @@
                 </p>
 
                 <div class="tarjetas" id="listaZonas">
-
-                    <!-- ZONAS ORIGINALES: NO SE MODIFICAN NI SE PUEDEN ELIMINAR -->
 
                     <article class="tarjeta">
                         <img src="img/zona-1.jpg" alt="Bodega Industrial Usada Como Refugio">
@@ -119,6 +117,44 @@
                 <div class="detalle-nivel" id="detalleNivel">
                     <p>Selecciona un nivel para ver el protocolo correspondiente.</p>
                 </div>
+
+                <div class="protocolo">
+                    <details class="protocolo-item">
+                        <summary>Escucho ruido afuera del refugio</summary>
+                        <p>
+                            Apaga toda fuente de luz, aléjate de las ventanas y espera
+                            diez minutos en silencio antes de moverte. La mayoría de los
+                            grupos sigue de largo si no detecta movimiento adentro.
+                        </p>
+                    </details>
+
+                    <details class="protocolo-item">
+                        <summary>Cómo reconocer un refugio seguro</summary>
+                        <p>
+                            Debe tener un solo acceso que puedas cerrar desde adentro,
+                            agua a menos de una hora de camino y una ruta de escape
+                            alterna. Si no puedes bloquear la entrada, no es un refugio.
+                        </p>
+                    </details>
+
+                    <details class="protocolo-item">
+                        <summary>Alguien del grupo fue mordido</summary>
+                        <p>
+                            Aísla a la persona en una habitación con cerrojo exterior y
+                            avisa al puesto de control más cercano. Lava la herida, pero
+                            no compartan utensilios, ropa ni vendas usadas.
+                        </p>
+                    </details>
+
+                    <details class="protocolo-item">
+                        <summary>Cuándo está permitido salir</summary>
+                        <p>
+                            Solo en nivel verde o amarillo, con luz de día, acompañado y
+                            dejando escrita la ruta y la hora estimada de regreso. Nunca
+                            salgas si el nivel es rojo.
+                        </p>
+                    </details>
+                </div>
             </div>
         </section>
 
@@ -138,10 +174,13 @@
                     <button class="boton-secundario" id="botonVaciar" type="button">
                         Vaciar mochila
                     </button>
+
+                    <ul class="lista-mochila" id="listaMochila"></ul>
                 </div>
 
                 <div class="tarjetas">
                     <article class="tarjeta tarjeta-recurso">
+                        <img src="img/agua.jpg" alt="Botella de agua potable">
                         <div class="tarjeta-cuerpo">
                             <h3>Agua potable</h3>
                             <p>3 litros por persona al día. Es el recurso que primero se agota y el más difícil de reemplazar.</p>
@@ -150,6 +189,7 @@
                     </article>
 
                     <article class="tarjeta tarjeta-recurso">
+                        <img src="img/botiquin.jpg" alt="Botiquín de primeros auxilios">
                         <div class="tarjeta-cuerpo">
                             <h3>Botiquín</h3>
                             <p>Vendas, alcohol, analgésicos y antibióticos. Una herida pequeña sin atender es tan peligrosa como una mordida.</p>
@@ -158,6 +198,7 @@
                     </article>
 
                     <article class="tarjeta tarjeta-recurso">
+                        <img src="img/radio.jpg" alt="Radio portátil de manivela">
                         <div class="tarjeta-cuerpo">
                             <h3>Radio</h3>
                             <p>No depende de baterías. Es la única forma de recibir las transmisiones de Estación Radio Alta.</p>
@@ -166,6 +207,7 @@
                     </article>
 
                     <article class="tarjeta tarjeta-recurso">
+                        <img src="img/linterna.jpg" alt="Linterna con pilas de repuesto">
                         <div class="tarjeta-cuerpo">
                             <h3>Linterna y pilas</h3>
                             <p>Nunca te desplaces de noche sin luz. Usa el haz corto para no revelar tu posición a distancia.</p>
@@ -174,6 +216,7 @@
                     </article>
 
                     <article class="tarjeta tarjeta-recurso">
+                        <img src="img/alimento.jpg" alt="Alimentos enlatados y barras energéticas">
                         <div class="tarjeta-cuerpo">
                             <h3>Alimento</h3>
                             <p>Enlatados y barras energéticas. Prioriza lo que no necesite cocción ni agua para prepararse.</p>
@@ -182,6 +225,7 @@
                     </article>
 
                     <article class="tarjeta tarjeta-recurso">
+                        <img src="img/mapa.jpg" alt="Mapa físico de papel con rutas marcadas">
                         <div class="tarjeta-cuerpo">
                             <h3>Mapa físico</h3>
                             <p>Los teléfonos se descargan y no hay red. Marca en papel cada ruta que recorras y cada zona comprometida.</p>
@@ -248,8 +292,8 @@
             <h3 class="pie-titulo">Corporación Umbrella</h3>
             <p>Guía de supervivencia zombie.</p>
             <p class="pie-integrantes">
-                Ricardo Mera <br>
                 Michael Hernández <br>
+                Ricardo Mera <br>
                 José Lasso
             </p>
             <p class="pie-nota">Desarrollo de aplicaciones web - 2026</p>
