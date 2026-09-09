@@ -496,18 +496,6 @@ img {
   font-size: 13px;
   color: #777777;
 }
-
-@media (max-width: 900px) {
-  .tarjetas {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .barra {
-    flex-wrap: wrap;
-  }
-
   .boton-menu {
     display: block;
     background-color: transparent;
@@ -554,4 +542,15 @@ img {
   .inicio h2 {
     font-size: 28px;
   }
+
+@media (max-width: 900px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+@media (max-width: 700px) {
+  .barra {
+    flex-wrap: wrap;
+  } 
+    } 
