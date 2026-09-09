@@ -635,3 +635,12 @@ img {
     font-size: 28px;
   }
 }
+.suministros-busqueda {
+  text-align: center;
+}
+
+.resultado {
+  margin-top: 16px;
+  font-weight: bold;
+  color: var(--rojo);
+}

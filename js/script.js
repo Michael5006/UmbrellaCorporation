@@ -376,3 +376,12 @@ const MILISEGUNDOS_POR_DIA = 1000 * 60 * 60 * 24;
 const diferencia = new Date() - FECHA_BROTE;
 
 diasBrote.textContent = Math.floor(diferencia / MILISEGUNDOS_POR_DIA);
+
+// Función de búsqueda
+const botonBuscar = document.getElementById("botonBuscar");
+const resultadoBusqueda = document.getElementById("resultadoBusqueda");
+
+botonBuscar.addEventListener("click", function () {
+  const cantidad = Math.floor(Math.random() * 6) + 1;
+  resultadoBusqueda.textContent = `Encontraste ${cantidad} suministros.`;
+});
