@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella Corporation | Guía de supervivencia zombie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <div class="contenedor barra">
+            <h1 class="logo">Umbrella <span class="logo-z">Corporation</span></h1>
+
+            <button class="boton-menu" id="botonMenu" type="button">Menú</button>
+
+            <nav class="navegacion" id="menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#zonas">Zonas</a>
+                <a href="#peligro">Peligro</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#reporte">Reporte</a>
+                <button class="boton-tema" id="botonTema" type="button">Modo Oscuro</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="inicio" id="inicio">
+            <div class="contenedor inicio-texto">
+                <h2>Guía Oficial De Supervivencia</h2>
+                <p>
+                    El brote comenzó hace 47 días. Esta guía reúne la información
+                    verificada por los últimos puestos de control activos: dónde
+                    refugiarse, cómo medir el riesgo de cada zona y qué llevar
+                    en la mochila antes de salir.
+                </p>
+                <a class="boton-principal" href="#zonas">Ver Zonas Seguras</a>
+            </div>
+        </section>
+
+        <section class="seccion" id="zonas">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Zonas Seguras</h2>
+                <p class="texto-seccion">
+                    Refugios verificados por los últimos puestos de control.
+                    Las tres zonas originales permanecen como referencia.
+                    Los nuevos reportes aparecerán aquí automáticamente.
+                </p>
+
+                <div class="tarjetas" id="listaZonas">
+
+                    <!-- ZONAS ORIGINALES: NO SE MODIFICAN NI SE PUEDEN ELIMINAR -->
+
+                    <article class="tarjeta">
+                        <img src="img/zona-1.jpg" alt="Bodega Industrial Usada Como Refugio">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Bodega Norte</h3>
+                            <p>
+                                Estructura de concreto con un solo acceso. Cuenta con
+                                planta eléctrica y capacidad para 40 personas.
+                            </p>
+                            <span class="etiqueta etiqueta-verde">Riesgo bajo</span>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta">
+                        <img src="img/zona-2.jpg" alt="Estación de radio en la montaña">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Estación Radio Alta</h3>
+                            <p>
+                                Ubicada en la montaña. Transmite las coordenadas de los
+                                refugios cada seis horas. El ascenso es difícil.
+                            </p>
+                            <span class="etiqueta etiqueta-amarilla">Riesgo medio</span>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta">
+                        <img src="img/zona-3.jpg" alt="Hospital abandonado en la ciudad">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Hospital Central</h3>
+                            <p>
+                                Tiene medicamentos y quirófanos intactos, pero está en
+                                el centro de la ciudad. Solo entrar acompañado.
+                            </p>
+                            <span class="etiqueta etiqueta-roja">Riesgo alto</span>
+                        </div>
+                    </article>
+
+                    <!-- LAS NUEVAS ZONAS SE INSERTAN AQUÍ CON JAVASCRIPT -->
+
+                </div>
+
+                <p class="sin-zonas" id="sinZonas">
+                    Todavía no hay zonas nuevas reportadas.
+                </p>
+            </div>
+        </section>
+
+        <section class="seccion seccion-alterna" id="peligro">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Niveles de peligro</h2>
+                <p class="texto-seccion">
+                    Escala oficial de clasificación. Selecciona un nivel para
+                    conocer el protocolo que debes seguir.
+                </p>
+
+                <div class="niveles">
+                    <button class="boton-nivel" data-nivel="verde" type="button">Nivel Verde</button>
+                    <button class="boton-nivel" data-nivel="amarillo" type="button">Nivel Amarillo</button>
+                    <button class="boton-nivel" data-nivel="rojo" type="button">Nivel Rojo</button>
+                </div>
+
+                <div class="detalle-nivel" id="detalleNivel">
+                    <p>Selecciona un nivel para ver el protocolo correspondiente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" id="recursos">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Recursos y recomendaciones</h2>
+                <p class="texto-seccion">
+                    Elementos indispensables antes de salir del refugio.
+                    Arma tu mochila y verifica cuántos llevas.
+                </p>
+
+                <div class="mochila">
+                    <p class="mochila-texto">
+                        Elementos en la mochila:
+                        <span class="mochila-numero" id="contadorMochila">0</span>
+                    </p>
+                    <button class="boton-secundario" id="botonVaciar" type="button">
+                        Vaciar mochila
+                    </button>
+                </div>
+
+                <div class="tarjetas">
+                    <article class="tarjeta tarjeta-recurso">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Agua potable</h3>
+                            <p>3 litros por persona al día. Es el recurso que primero se agota y el más difícil de reemplazar.</p>
+                            <button class="boton-agregar" type="button">Agregar</button>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta tarjeta-recurso">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Botiquín</h3>
+                            <p>Vendas, alcohol, analgésicos y antibióticos. Una herida pequeña sin atender es tan peligrosa como una mordida.</p>
+                            <button class="boton-agregar" type="button">Agregar</button>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta tarjeta-recurso">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Radio</h3>
+                            <p>No depende de baterías. Es la única forma de recibir las transmisiones de Estación Radio Alta.</p>
+                            <button class="boton-agregar" type="button">Agregar</button>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta tarjeta-recurso">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Linterna y pilas</h3>
+                            <p>Nunca te desplaces de noche sin luz. Usa el haz corto para no revelar tu posición a distancia.</p>
+                            <button class="boton-agregar" type="button">Agregar</button>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta tarjeta-recurso">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Alimento</h3>
+                            <p>Enlatados y barras energéticas. Prioriza lo que no necesite cocción ni agua para prepararse.</p>
+                            <button class="boton-agregar" type="button">Agregar</button>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta tarjeta-recurso">
+                        <div class="tarjeta-cuerpo">
+                            <h3>Mapa físico</h3>
+                            <p>Los teléfonos se descargan y no hay red. Marca en papel cada ruta que recorras y cada zona comprometida.</p>
+                            <button class="boton-agregar" type="button">Agregar</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion seccion-alterna" id="reporte">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Reportar una zona</h2>
+                <p class="texto-seccion">
+                    Si encontraste un refugio o detectaste actividad hostil,
+                    envía el reporte al puesto de control más cercano.
+                    Las nuevas zonas quedarán guardadas en este navegador.
+                </p>
+
+                <form class="formulario" id="formularioReporte">
+                    <div class="campo">
+                        <label for="nombre">Nombre del explorador</label>
+                        <input type="text" id="nombre" placeholder="Ej: Leon Kennedy" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="zona">Nombre o ubicación de la zona</label>
+                        <input type="text" id="zona" placeholder="Ej: Bodega Sur" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nivel">Nivel de peligro observado</label>
+                        <select id="nivel" required>
+                            <option value="">Selecciona un nivel</option>
+                            <option value="verde">Verde</option>
+                            <option value="amarillo">Amarillo</option>
+                            <option value="rojo">Rojo</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="observaciones">Observaciones / comentarios</label>
+                        <textarea id="observaciones" rows="4" placeholder="Describe lo que viste" required></textarea>
+                    </div>
+
+                    <div class="campo">
+                        <label for="foto">Fotografía de la zona (opcional)</label>
+                        <input type="file" id="foto" accept="image/*">
+                        <small class="ayuda-foto">Puedes subir una imagen JPG, PNG, WEBP u otro formato compatible.</small>
+                        <div class="previsualizacion" id="contenedorPreview">
+                            <img id="vistaPreviaFoto" alt="Vista previa de la fotografía">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="boton-principal">Enviar Reporte</button>
+                    <p class="mensaje" id="mensajeFormulario"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <h3 class="pie-titulo">Corporación Umbrella</h3>
+            <p>Guía de supervivencia zombie.</p>
+            <p class="pie-integrantes">
+                Michael Hernández <br>
+                Ricardo Mera <br>
+                José Lasso
+            </p>
+            <p class="pie-nota">Desarrollo de aplicaciones web - 2026</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
